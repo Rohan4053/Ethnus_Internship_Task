@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task - 8</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+            text-align: center;
+        }
+        .container {
+            width: 40%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px #00000033;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+        .register-btn {
+            background-color: red;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form id="registrationForm">
+            <label>First Name:</label>
+            <input type="text" id="firstName">
+            <span class="error" id="firstNameError"></span>
+            
+            <label>Last Name:</label>
+            <input type="text" id="lastName">
+            <span class="error" id="lastNameError"></span>
+            
+            <label>Email:</label>
+            <input type="email" id="email">
+            <span class="error" id="emailError"></span>
+            
+            <label>Password:</label>
+            <input type="password" id="password">
+            <span class="error" id="passwordError"></span>
+            
+            <label>Re-enter Password:</label>
+            <input type="password" id="repassword">
+            <span class="error" id="repasswordError"></span>
+            
+            <label>Gender:</label>
+            <input type="radio" name="gender" value="Male"> Male
+            <input type="radio" name="gender" value="Female"> Female
+            
+            <label>Age:</label>
+            <input type="number" id="age">
+            <span class="error" id="ageError"></span>
+            
+            <label>Phone Number:</label>
+            <input type="text" id="phone">
+            <span class="error" id="phoneError"></span>
+            
+            <label>Address:</label>
+            <textarea id="address"></textarea>
+            <span class="error" id="addressError"></span>
+            
+            <label>State:</label>
+            <input type="text" id="state">
+            <span class="error" id="stateError"></span>
+            
+            <label>Country:</label>
+            <select id="country">
+                <option>Choose your country</option>
+                <option>USA</option>
+                <option>India</option>
+                <option>Canada</option>
+            </select>
+            
+            <button type="button" class="register-btn" onclick="validateForm()">REGISTER</button>
+        </form>
+    </div>
+    
+    <script>
+        function validateForm() {
+            let valid = true;
+            document.querySelectorAll('.error').forEach(e => e.innerHTML = '');
+            
+            if (document.getElementById('firstName').value.trim() === '') {
+                document.getElementById('firstNameError').innerText = 'POOR';
+                valid = false;
+            }
+            if (document.getElementById('lastName').value.trim() === '') {
+                document.getElementById('lastNameError').innerText = 'POOR';
+                valid = false;
+            }
+            if (document.getElementById('email').value.trim() === '') {
+                document.getElementById('emailError').innerText = 'POOR';
+                valid = false;
+            }
+            if (document.getElementById('password').value.length < 6) {
+                document.getElementById('passwordError').innerText = 'POOR';
+                valid = false;
+            }
+            if (document.getElementById('password').value !== document.getElementById('repassword').value) {
+                document.getElementById('repasswordError').innerText = 'POOR OR MISMATCH';
+                valid = false;
+            }
+            if (document.getElementById('age').value.trim() === '') {
+                document.getElementById('ageError').innerText = 'POOR';
+                valid = false;
+            }
+            if (document.getElementById('phone').value.trim() === '') {
+                document.getElementById('phoneError').innerText = 'POOR';
+                valid = false;
+            }
+            if (document.getElementById('address').value.trim() === '') {
+                document.getElementById('addressError').innerText = 'POOR';
+                valid = false;
+            }
+            if (document.getElementById('state').value.trim() === '') {
+                document.getElementById('stateError').innerText = 'POOR';
+                valid = false;
+            }
+            if (!valid) {
+                alert("Please fill out all required fields correctly.");
+            }
+        }
+    </script>
+</body>
+</html>

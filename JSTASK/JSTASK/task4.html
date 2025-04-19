@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task - 4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Show Date and Time</h2>
+    <button onclick="showDate()">Show Date</button>
+    <h3 id="date"></h3>
+    <button onclick="showTime()">Show Time</button>
+    <h3 id="time"></h3>
+
+    <script>
+        function showDate() {
+            let today = new Date();
+            let formattedDate = today.getDate() + "/" + today.toLocaleString('default', { month: 'long' }) + "/" + today.getFullYear();
+            document.getElementById("date").innerText = formattedDate;
+        }
+        
+        function showTime() {
+            let now = new Date();
+            document.getElementById("time").innerText = now;
+        }
+    </script>
+</body>
+</html>

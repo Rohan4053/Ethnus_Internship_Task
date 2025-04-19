@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task - 7</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .train-container {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        .train {
+            position: absolute;
+            left: 0;
+            bottom: 10px;
+            width: 300px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="train-container">
+        <img src="https://i.ibb.co/Y5r0zZv/train-cartoon-train-removebg-preview.png" class="train" id="train" alt="Train">
+    </div>
+    <h2>Click the following buttons to handle animation</h2>
+    <div class="buttons">
+        <button onclick="startTrain()">Start</button>
+        <button onclick="stopTrain()">Stop</button>
+    </div>
+
+    <script>
+        let train = document.getElementById("train");
+        let position = 0;
+        let interval;
+
+        function startTrain() {
+            clearInterval(interval);
+            interval = setInterval(() => {
+                if (position < window.innerWidth - 200) {
+                    position += 5;
+                    train.style.left = position + "px";
+                } else {
+                    position = -200;
+                }
+            }, 50);
+        }
+
+        function stopTrain() {
+            clearInterval(interval);
+        }
+    </script>
+</body>
+</html>
